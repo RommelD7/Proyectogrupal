@@ -28,6 +28,8 @@ public class DetallePlatillosController {
         return "listar-detalle-platillos"; // nombre del formulario EJ: listar-detalle-platillos.html o listar-detalle-platillos.jsp
     }
 
+    
+    //AqUI
     @GetMapping("/findOne")
     public String findOne(@RequestParam("idDetallePlatillos") @Nullable Integer idDetallePlatillos,
                           @RequestParam("opcion") @Nullable Integer opcion, Model model) {
