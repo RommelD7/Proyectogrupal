@@ -30,7 +30,11 @@
                     <td>${item.idPlatillos}</td>
                     <td>${item.platillo}</td>
                     <td>${item.descripcion}</td>
-                    <td>${item.imagen}</td>
+                    <td>
+                    <img alt="Foto2" with="100" height="150" src="${pageContext.request.contextPath}/resources/img/${item.imagen}">
+                   
+                    
+                    </td>
                     <td> 
                           <button onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=1';return false;">
                           Actualizar

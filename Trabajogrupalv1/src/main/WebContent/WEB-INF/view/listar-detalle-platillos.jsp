@@ -31,7 +31,9 @@
                     <td> ${item.idDetallePlatillos}</td>
                     <td> ${item.ingrediente}</td>
                     <td> ${item.descripcion}</td>
-                    <td> ${item.imagen}</td>
+                    <td> 
+                   <img alt="Foto" with="75" height="75" src="${pageContext.request.contextPath}/resources/img/${item.imagen}">
+                    </td>
                     <td> ${item.idProductos}</td>
                     <td> ${item.idPlatillos}</td>
                     <td> 
