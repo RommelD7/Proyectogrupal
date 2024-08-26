@@ -4,49 +4,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Gestión de Platillos</title>
+	<meta charset="ISO-8859-1">
+	<title>Gestión de Platillos</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap-table.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-        <h1>Platillos</h1>
-        
-        <button onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?opcion=1';return false;">
-         Agregar
-        </button>
-        
-        <table>
-           <thead>
-                <tr>
-                    <th>idPlatillos</th>
-                    <th>Platillo</th>
-                    <th>Descripción</th>
-                    <th>Imagen</th>
-                    <th>Acciones</th>
-               </tr>
-        </thead>
-        <tbody>
-           <c:forEach var="item" items="${platillos}">
-                <tr> 
-                    <td>${item.idPlatillos}</td>
-                    <td>${item.platillo}</td>
-                    <td>${item.descripcion}</td>
-                    <td>
-                    <img alt="Foto2" with="100" height="150" src="${pageContext.request.contextPath}/resources/img/${item.imagen}">
-                   
-                    
-                    </td>
-                    <td> 
-                          <button onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=1';return false;">
-                          Actualizar
-                          </button>
-                          <button onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=2';return false;">
-                          Eliminar
-                          </button>             
-                    </td>
-               </tr>
-            </c:forEach>
-          </tbody>
-        </table>
+ 
+<nav></nav>
+
+<section class="px-5 py-5">
+	<div class="container">
+		<h1>Platillos</h1>
+		<div class="container" style="text-align: center;">
+			<button class="btn btn-primary" onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?opcion=1'; return false;">
+				<i class="fa-solid fa-plus"></i> <!-- Icono de agregar -->
+				Agregar
+			</button>
+		</div>
+		<div class="table-responsive">
+			<table id="tablaPlatillos"
+					name="tablaPlatillos"
+					data-height="600"
+					data-search="true"
+					data-pagination="true"
+					class="table table-striped table-sm">
+				<thead>
+					<tr>
+						<th>idPlatillos</th>
+						<th data-field="Platillo" data-sortable="true">Platillo</th>
+						<th data-field="Descripción" data-sortable="true">Descripción</th>
+						<th data-field="Imagen" data-sortable="true">Imagen</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="item" items="${platillos}">
+						<tr>
+							<td>${item.idPlatillos}</td>
+							<td>${item.platillo}</td>
+							<td>${item.descripcion}</td>
+							<td>
+								<img alt="Imagen del platillo" width="100" height="100" src="${pageContext.request.contextPath}/resources/img/${item.imagen}" />
+							</td>
+							<td>
+								<button class="btn btn-success" onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=1'; return false;">
+									<i class="fa-solid fa-pen-to-square"></i> <!-- Icono de actualizar -->
+									Actualizar
+								</button>
+								<button class="btn btn-danger" onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=2'; return false;">
+									<i class="fa-solid fa-trash"></i> <!-- Icono de eliminar -->
+									Eliminar
+								</button>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+
+<footer></footer>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap-table.min.js"></script>
+<script type="text/javascript">
+	var $tablaPlatillos = $('#tablaPlatillos');
+	$(function(){
+		$tablaPlatillos.bootstrapTable({ sortReset: true });
+	});
+</script>
 
 </body>
 </html>
