@@ -34,8 +34,8 @@
                 <label for="imagen" class="form-label">Imagen</label>
                 <input type="text" class="form-control" id="imagen" name="imagen" value="${platillo.imagen != null ? platillo.imagen : '.jpg'}" required>
             </div>
-            
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <br>
+            <button type="submit" class="btn btn-primary">Guardar</button> 
             <button type="button" class="btn btn-secondary" onclick="window.location.href='/Trabajogrupalv1/platillos/findAll';return false;">Cancelar</button>
         </form>
     </div>
