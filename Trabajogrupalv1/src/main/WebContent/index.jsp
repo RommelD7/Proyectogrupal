@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Animación del Camaleón</title>
+    <title>Camalon Sabroso</title>
     <style>
         body, html {
             height: 100%;
@@ -80,7 +80,7 @@
 </head>
 <body>
     <div class="intro-container">
-        <h1>¡Hola Mundo desde TOMCAT!</h1>
+        <h1>¡Bienvenido a Camaleon Sabroso!</h1>
         <div class="button-container">
             <button class="button button-platillos" onclick="window.location.href='http://localhost:8080/Trabajogrupalv1/platillos/findAll'; return false;">
                 Platillos

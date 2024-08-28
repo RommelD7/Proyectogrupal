@@ -31,7 +31,7 @@
         <div class="table-responsive">
             <table id="tablaPlatillos"
                    name="tablaPlatillos"
-                   data-height="600"
+                   data-height="800"
                    data-search="true"
                    data-pagination="true"
                    class="table table-striped table-sm">
@@ -51,7 +51,7 @@
                             <td>${item.platillo}</td>
                             <td>${item.descripcion}</td>
                             <td>
-                                <img alt="Imagen del platillo" width="100" height="100" src="${pageContext.request.contextPath}/resources/img/${item.imagen}" />
+                                <img alt="Imagen del platillo" width="250" height="250" src="${pageContext.request.contextPath}/resources/img/${item.imagen}" />
                             </td>
                             <td>
                                 <button class="btn btn-success" onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=1'; return false;">

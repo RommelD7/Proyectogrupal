@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,12 +61,26 @@
             display: block;
             margin-bottom: 5px;
         }
+        .platillo-image {
+            margin-bottom: 20px;
+        }
+        .platillo-image img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
     <h1>Eliminar Detalle Platillo</h1>
     <form action="del" method="get">
         <input type="hidden" id="idDetallePlatillos" name="idDetallePlatillos" value="${detallePlatillo.idDetallePlatillos}" />
+        
+        <div class="platillo-image">
+            <img alt="Imagen del detalle del platillo" 
+                 src="${pageContext.request.contextPath}/resources/img/${detallePlatillo.imagen}" 
+                 onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/resources/img/default.jpg';" />
+        </div>
         
         <div class="detalle-platillo-details">
             <strong>Ingrediente:</strong> ${detallePlatillo.ingrediente}
@@ -77,9 +90,10 @@
         <strong>¿Desea eliminar este detalle de platillo?</strong>
         
         <button type="submit">Eliminar</button>
-        <button type="button" class="cancel-button" onclick="window.location.href='/Trabajogrupalv1/detallePlatillos/findAll'; return false;">
+        <button type="button" class="cancel-button" onclick="window.location.href='${pageContext.request.contextPath}/detallePlatillos/findAll'; return false;">
             Cancelar
         </button>
     </form>
 </body>
 </html>
+

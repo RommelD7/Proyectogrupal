@@ -53,7 +53,7 @@
                             <td>${item.ingrediente}</td>
                             <td>${item.descripcion}</td>
                             <td>
-                                <img alt="Imagen del detalle platillo" width="100" height="100" src="${pageContext.request.contextPath}/resources/img/${item.imagen}" />
+                                <img alt="Imagen" width="200" height="200" src="${pageContext.request.contextPath}/resources/img/${item.imagen}" />
                             </td>
                             <td>${item.idProductos}</td>
                             <td>${item.idPlatillos}</td>
