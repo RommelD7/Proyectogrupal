@@ -32,7 +32,7 @@
             <table id="tablaDetallePlatillos"
                    name="tablaDetallePlatillos"
                    data-height="600"
-                   data-search="true"
+                   data-search="true"  
                    data-pagination="true"
                    class="table table-striped table-sm">
                 <thead>

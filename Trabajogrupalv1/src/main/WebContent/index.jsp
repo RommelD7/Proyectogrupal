@@ -89,6 +89,13 @@
             <button class="button button-detalle-platillos" onclick="window.location.href='http://localhost:8080/Trabajogrupalv1/detallePlatillos/findAll'; return false;">
                 Detalle Platillos
             </button>
+              <div class="chameleon"></div>
+            <button class="button button-reportes" onclick="window.location.href='http://localhost:8080/Trabajogrupalv1/reportes/reporte1'; return false;">
+               Reportes
+            </button>
+            
+            
+            
         </div>
     </div>
 </body>

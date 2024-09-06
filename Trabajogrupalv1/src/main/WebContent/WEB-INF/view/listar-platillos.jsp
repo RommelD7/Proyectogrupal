@@ -18,12 +18,12 @@
     <div class="container">
         <h1>Platillos</h1>
         <div class="container" style="text-align: center;">
-            <button class="btn btn-primary" onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?opcion=1'; return false;">
+            <button class="btn btn-primary" onclick="saveTableState(); window.location.href='/Trabajogrupalv1/platillos/findOne?opcion=1'; return false;">
                 <i class="fa-solid fa-plus"></i> <!-- Icono de agregar -->
                 Agregar
             </button>
             <!-- Botón de regresar -->
-            <button class="btn btn-secondary" onclick="window.location.href='http://localhost:8080/Trabajogrupalv1/';">
+            <button class="btn btn-secondary" onclick="saveTableState(); window.location.href='http://localhost:8080/Trabajogrupalv1/'; return false;">
                 <i class="fa-solid fa-arrow-left"></i> <!-- Icono de regresar -->
                 Regresar
             </button>
@@ -54,11 +54,11 @@
                                 <img alt="Imagen del platillo" width="250" height="250" src="${pageContext.request.contextPath}/resources/img/${item.imagen}" />
                             </td>
                             <td>
-                                <button class="btn btn-success" onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=1'; return false;">
+                                <button class="btn btn-success" onclick="saveTableState(); window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=1'; return false;">
                                     <i class="fa-solid fa-pen-to-square"></i> <!-- Icono de actualizar -->
                                     Actualizar
                                 </button>
-                                <button class="btn btn-danger" onclick="window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=2'; return false;">
+                                <button class="btn btn-danger" onclick="saveTableState(); window.location.href='/Trabajogrupalv1/platillos/findOne?idPlatillos=${item.idPlatillos}&opcion=2'; return false;">
                                     <i class="fa-solid fa-trash"></i> <!-- Icono de eliminar -->
                                     Eliminar
                                 </button>
@@ -79,11 +79,24 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap-table.min.js"></script>
 <script type="text/javascript">
     var $tablaPlatillos = $('#tablaPlatillos');
+    
     $(function(){
         $tablaPlatillos.bootstrapTable({ sortReset: true });
+
+        // Restaurar la página y la posición de desplazamiento
+        var currentPage = localStorage.getItem("currentPage");
+        if (currentPage) {
+            $tablaPlatillos.bootstrapTable('selectPage', parseInt(currentPage));
+            localStorage.removeItem("currentPage");
+        }
     });
+
+    // Guardar el estado de la tabla (página actual)
+    function saveTableState() {
+        var currentPage = $tablaPlatillos.bootstrapTable('getOptions').pageNumber;
+        localStorage.setItem("currentPage", currentPage);
+    }
 </script>
 
 </body>
 </html>
-
